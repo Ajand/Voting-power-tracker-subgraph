@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Contract
@@ -25,7 +25,7 @@ dataSources:
         - Transfer
       abis:
         - name: Contract
-          file: ./abis/Contract.json
+          file: Contract/abis/Contract.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
@@ -35,7 +35,8 @@ dataSources:
           handler: handleDelegateChanged
         - event: DelegateVotesChanged(indexed address,uint256,uint256)
           handler: handleDelegateVotesChanged
-        - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed bytes32,uint256,bytes)
+        - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed
+            bytes32,uint256,bytes)
           handler: handleLogNote
         - event: LogSetAuthority(indexed address)
           handler: handleLogSetAuthority
@@ -45,4 +46,4 @@ dataSources:
           handler: handleMint
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/contract.ts
+      file: Contract/Contract.wasm
